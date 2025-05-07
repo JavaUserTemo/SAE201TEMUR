@@ -1,4 +1,4 @@
-package com.example.demov3;
+package com.sae.moutonloup;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

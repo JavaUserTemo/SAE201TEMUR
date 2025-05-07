@@ -5,6 +5,6 @@ module com.example.demov3 {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
 
-    opens com.example.demov3 to javafx.fxml;
-    exports com.example.demov3;
+    opens com.sae.moutonloup to javafx.fxml;
+    exports com.sae.moutonloup;
 }
