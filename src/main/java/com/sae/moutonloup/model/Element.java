@@ -1,17 +1,13 @@
 package com.sae.moutonloup.model;
 
-public class Element {
-    private String type;
+public abstract class Element {
+    protected String type;
 
-    public Element(String t) {
-        this.type = t;
+    public Element(String type) {
+        this.type = type;
     }
 
     public String getType() {
         return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }

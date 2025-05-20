@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.sae.moutonloup.view.SimulateurController" spacing="10" alignment="CENTER">
+
+    <GridPane fx:id="grilleLabyrinthe" gridLinesVisible="true" prefWidth="400" prefHeight="400" />
+
+    <Button fx:id="boutonDemarrer" text="Démarrer la simulation" onAction="#demarrerSimulation" />
+
+</VBox>
