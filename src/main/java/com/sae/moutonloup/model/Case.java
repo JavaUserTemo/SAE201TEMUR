@@ -2,32 +2,32 @@ package com.sae.moutonloup.model;
 
 public class Case {
     private Element element;
-    private Animal animal;
-    private boolean sortie;
 
-    public Case(Element element, boolean sortie) {
+    public Case(Element element) {
         this.element = element;
-        this.sortie = sortie;
-        this.animal = null;
-    }
-
-    public boolean estAccessible() {
-        return !(element instanceof Rocher) && animal == null;
-    }
-
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
-    }
-
-    public Animal getAnimal() {
-        return animal;
     }
 
     public Element getElement() {
         return element;
     }
 
-    public boolean isSortie() {
-        return sortie;
+    public void setElement(Element element) {
+        this.element = element;
+    }
+
+    public boolean estAccessible() {
+        return element == null || element.isAccessible();
+    }
+
+    public boolean estRocher() {
+        return element instanceof Rocher;
+    }
+
+    public boolean estSortie() {
+        return element instanceof Herbe;
+    }
+
+    public boolean estVide() {
+        return element == null;
     }
 }

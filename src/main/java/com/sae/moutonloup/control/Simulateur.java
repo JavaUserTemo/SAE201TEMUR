@@ -6,6 +6,7 @@ public class Simulateur {
     private Labyrinthe labyrinthe;
     private Mouton mouton;
     private Loup loup;
+
     private int nbTours = 0;
     private int nbHerbe = 0, nbCactus = 0, nbMarguerite = 0;
 
@@ -15,63 +16,55 @@ public class Simulateur {
         this.loup = loup;
     }
 
-    public void demarrerSimulation() {
-        while (true) {
-            nbTours++;
-
-            deplacerMouton();
-            if (moutonSurSortie()) {
-                afficherResultat("Mouton");
-                break;
-            }
-
-
-            deplacerLoup();
-            if (loupAttrapeMouton()) {
-                afficherResultat("Loup");
-                break;
-            }
-        }
-    }
-
-    private void deplacerMouton() {
+    public void tourMouton() {
         Position pos = mouton.getPosition();
-        Case caseActuelle = labyrinthe.getCase(pos.getX(), pos.getY());
+        Element element = labyrinthe.getElement(pos.getX(), pos.getY());
 
-        Element element = caseActuelle.getElement();
         if (element instanceof Vegetal vegetal) {
-            mouton.vitesse = vegetal.getBoost();
-
-            switch (vegetal.getType()) {
-                case "Herbe" -> nbHerbe++;
-                case "Cactus" -> nbCactus++;
-                case "Marguerite" -> nbMarguerite++;
-            }
+            mouton.manger(vegetal);
+            if (vegetal instanceof Herbe) nbHerbe++;
+            else if (vegetal instanceof Marguerite) nbMarguerite++;
+            else if (vegetal instanceof Cactus) nbCactus++;
         }
 
-        // Déplacement aléatoire temporaire (à remplacer par contrôles manuels ou IA plus tard)
-        mouton.deplacer(1, 0); // ex : avance vers la droite
+
+        labyrinthe.getCase(pos.getX(), pos.getY()).setElement(
+                labyrinthe.genererVegetalAleatoire()
+        );
     }
 
-    private void deplacerLoup() {
-        // Déplacement aléatoire temporaire
-        loup.deplacer(-1, 0); // ex : avance vers la gauche
+    public void tourLoup() {
+
     }
 
-    private boolean moutonSurSortie() {
-        Position pos = mouton.getPosition();
-        return labyrinthe.getCase(pos.getX(), pos.getY()).isSortie();
+    public boolean estPartieFinie() {
+        return mouton.getPosition().equals(labyrinthe.getSortie()) ||
+                mouton.getPosition().equals(loup.getPosition());
     }
 
-    private boolean loupAttrapeMouton() {
-        return mouton.getPosition().distance(loup.getPosition()) == 0;
+    public String getVainqueur() {
+        if (mouton.getPosition().equals(loup.getPosition())) return "Loup";
+        if (mouton.getPosition().equals(labyrinthe.getSortie())) return "Mouton";
+        return null;
     }
 
-    private void afficherResultat(String gagnant) {
-        System.out.println("Victoire du : " + gagnant);
-        System.out.println("Nombre de tours : " + nbTours);
-        System.out.println("Herbes mangées : " + nbHerbe);
-        System.out.println("Marguerites mangées : " + nbMarguerite);
-        System.out.println("Cactus mangés : " + nbCactus);
+    public void incrementerTour() {
+        nbTours++;
+    }
+
+    public int getNbTours() {
+        return nbTours;
+    }
+
+    public int getNbHerbe() {
+        return nbHerbe;
+    }
+
+    public int getNbCactus() {
+        return nbCactus;
+    }
+
+    public int getNbMarguerite() {
+        return nbMarguerite;
     }
 }

@@ -1,13 +1,9 @@
 package com.sae.moutonloup.model;
 
+import javafx.scene.image.Image;
+
 public abstract class Element {
-    protected String type;
+    public abstract Image getImage();
+    public abstract boolean isAccessible();
 
-    public Element(String type) {
-        this.type = type;
-    }
-
-    public String getType() {
-        return type;
-    }
 }

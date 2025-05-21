@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.sae.moutonloup.view.EditeurController">
+
+    <center>
+        <GridPane fx:id="grillePane" hgap="2" vgap="2"
+                  style="-fx-background-color: lightgray;"
+                  BorderPane.alignment="CENTER"/>
+    </center>
+
+    <right>
+        <VBox spacing="10.0" alignment="CENTER" BorderPane.alignment="CENTER">
+            <padding>
+                <Insets top="10" bottom="10" left="10" right="10"/>
+            </padding>
+
+            <Button onAction="#boutonLoup">
+                <graphic>
+                    <ImageView fitWidth="40" fitHeight="40">
+                        <image>
+                            <Image url="@../../../images/loup.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button onAction="#boutonMouton">
+                <graphic>
+                    <ImageView fitWidth="40" fitHeight="40">
+                        <image>
+                            <Image url="@../../../images/mouton.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button onAction="#boutonCactus">
+                <graphic>
+                    <ImageView fitWidth="40" fitHeight="40">
+                        <image>
+                            <Image url="@../../../images/cactus.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button onAction="#boutonMarguerite">
+                <graphic>
+                    <ImageView fitWidth="40" fitHeight="40">
+                        <image>
+                            <Image url="@../../../images/marguerite.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button onAction="#boutonRocher">
+                <graphic>
+                    <ImageView fitWidth="40" fitHeight="40">
+                        <image>
+                            <Image url="@../../../images/rocher.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button onAction="#boutonSortie">
+                <graphic>
+                    <ImageView fitWidth="40" fitHeight="40">
+                        <image>
+                            <Image url="@../../../images/sortie.png"/>
+                        </image>
+                    </ImageView>
+                </graphic>
+            </Button>
+
+            <Button onAction="#boutonSupprimer" text="❌ Supprimer"/>
+            <Button onAction="#demarrerPartie" text="▶ Démarrer la partie" style="-fx-background-color: green; -fx-text-fill: white;"/>
+            <Button onAction="#importerGrille" text="📂 Importer"/>
+            <Button onAction="#exporterGrille" text="💾 Exporter"/>
+            <Button onAction="#rejouer" text="🔁 Rejouer"/>
+
+        </VBox>
+    </right>
+
+</BorderPane>

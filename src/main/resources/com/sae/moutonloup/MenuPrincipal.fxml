@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.StackPane?>
+
+
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.sae.moutonloup.view.MenuController"
+           style="-fx-background-image: url('/images/fond_menu.png');
+                  -fx-background-size: cover;">
+
+    <Button fx:id="jouerButton"
+            text="JOUER"
+            onAction="#demarrerJeu"
+            style="-fx-font-size: 30px; -fx-background-color: white; -fx-border-radius: 10px; -fx-padding: 15px;" />
+</StackPane>

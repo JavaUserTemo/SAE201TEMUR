@@ -1,16 +1,21 @@
 package com.sae.moutonloup.model;
 
-public class Loup extends Animal {
-    public Loup(Position position) {
-        super(3, position);
-    }
+import javafx.scene.image.Image;
 
-    public void chasse() {
-        System.out.println("Le loup chasse !");
+public class Loup extends Animal {
+
+    public Loup(Position position) {
+        super(position);
+        this.vitesse = 3;
     }
 
     @Override
-    public void voir() {
-        System.out.println("Le loup cherche une proie.");
+    public Image getImage() {
+        return new Image(getClass().getResource("/images/loup.png").toExternalForm());
+    }
+
+    @Override
+    public boolean isAccessible() {
+        return false;
     }
 }
