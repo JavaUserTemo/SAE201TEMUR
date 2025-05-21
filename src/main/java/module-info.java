@@ -5,4 +5,5 @@ module com.example.demov3 {
     opens com.sae.moutonloup.view to javafx.fxml;
 
     exports com.sae.moutonloup;
+    exports com.sae.moutonloup.model;
 }
