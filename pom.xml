@@ -57,6 +57,7 @@
 
     <build>
         <plugins>
+            <!-- Compilation Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -66,21 +67,22 @@
                     <target>17</target>
                 </configuration>
             </plugin>
+
+            <!-- Plugin JavaFX + jlink -->
             <plugin>
                 <groupId>org.openjfx</groupId>
                 <artifactId>javafx-maven-plugin</artifactId>
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.example.demov3/com.sae.moutonloup.HelloApplication</mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
-                            <noManPages>true</noManPages>
+                            <mainClass>com.sae.moutonloup.Main</mainClass>
+                            <launcher>JeuLoupLauncher</launcher>
+                            <jlinkImageName>JeuMoutonLoup</jlinkImageName>
+                            <jlinkZipName>JeuMoutonLoup</jlinkZipName>
                             <stripDebug>true</stripDebug>
+                            <noManPages>true</noManPages>
                             <noHeaderFiles>true</noHeaderFiles>
                         </configuration>
                     </execution>
